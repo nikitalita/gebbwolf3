@@ -1,0 +1,19 @@
+name: build book
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: install deps
+      run: sudo apt install inkscape texlive texlive-font-utils texlive-fonts-recommended texlive-latex-extra golang-go
+    - name: run build
+      run: ./build.sh
