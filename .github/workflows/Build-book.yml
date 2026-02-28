@@ -16,4 +16,4 @@ jobs:
     - name: install deps
       run: sudo apt install inkscape texlive texlive-font-utils texlive-fonts-recommended texlive-latex-extra golang-go
     - name: run build
-      run: ./build.sh
+      run: ./make.sh
