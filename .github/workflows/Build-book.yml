@@ -5,7 +5,8 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-
+env:
+  OUTPUT_DIR_NAME: "out"
 jobs:
   build:
 
@@ -17,3 +18,11 @@ jobs:
       run: sudo apt install inkscape texlive texlive-font-utils texlive-fonts-recommended texlive-latex-extra golang-go
     - name: run build
       run: ./make.sh
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        # Artifact name
+        name: gebbwolf
+        # A file, directory or wildcard pattern that describes what to upload
+        path: "./out/gebbwolf*.pdf"
+        # The desired behavior if no files are found using the provided path.
